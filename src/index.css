@@ -1,13 +1,32 @@
+html,
 body {
+  height: 100%;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  font-family: 'Microsolft YaHei';
+  color: #333;
+  background-color: #fff
+  
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+h2, p, h3, ul {
+  margin: 0
 }
+
+ul {
+  list-style: none
+}
+
+/* set for baidu map api */
+html,
+body,
+#root,
+.App {
+  height: 100%;
+}
+* {
+  box-sizing: border-box;  
+  touch-action: pan-y;
+}
+
+
