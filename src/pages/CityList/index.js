@@ -1,11 +1,11 @@
 import React from 'react'
 import { Toast } from 'antd-mobile'
 import './index.scss'
-import axios from 'axios'
 import { getCurrentCity } from '../../utils/index'
 import { List, AutoSizer } from 'react-virtualized'
 
 import NavHeader from '../../components/NavHeader'
+import { API } from '../../utils/api'
 
 const TITLE_HEIGHT = 36
 const NAME_HEIGHT = 50
@@ -62,11 +62,12 @@ export default class CityList extends React.Component {
 
   async getCityList() {
     // get city list
-    const res = await axios.get('http://localhost:8080/area/city?level=1')
+
+    const res = await API.get('/area/city?level=1')
     const { cityList, cityIndex } = formatCityData(res.data.body)
 
     // get hot city list
-    const hotRes = await axios.get('http://localhost:8080/area/hot')
+    const hotRes = await API.get('/area/hot')
     cityList['hot'] = hotRes.data.body
     cityIndex.unshift('hot')
 
@@ -134,7 +135,7 @@ export default class CityList extends React.Component {
         }}
       >
         <span className={activeIndex === index ? 'index-active' : ''}>
-          {item.toUpperCase()}
+          {item === 'hot' ? '热' : item.toUpperCase()}
         </span>
       </li>
     ))

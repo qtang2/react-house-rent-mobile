@@ -1,12 +1,13 @@
 import React from 'react'
 import { Route } from 'react-router-dom'
 import { TabBar } from 'antd-mobile'
+
 import './index.css'
 
 import News from '../News'
 import Index from '../Index'
-import Profile from '../Profile'
 import HouseList from '../HouseList'
+import Profile from '../Profile'
 
 const tabItems = [
   {

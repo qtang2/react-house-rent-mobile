@@ -9,7 +9,7 @@ body {
   
 }
 
-h2, p, h3, ul {
+h2, p, h3, ul, h1, dd {
   margin: 0
 }
 
@@ -26,7 +26,11 @@ body,
 }
 * {
   box-sizing: border-box;  
-  touch-action: pan-y;
+  touch-action: none;
 }
 
+/* no scroll when filter dialog open */
+.body-fixed{
+  overflow: hidden
+}
 
