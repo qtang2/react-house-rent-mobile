@@ -91,11 +91,16 @@ export default class HouseList extends React.Component {
       )
     }
 
-    const { houseImg, title, desc, tags, price } = house
+    const { houseCode, houseImg, title, desc, tags, price } = house
     const src = BASE_URL + houseImg
+    // the first items were covered by am tab bar thing, so not clickable
+    // TODO: need to fix
     return (
       <HouseItem
         key={key}
+        onClick={() => {
+          this.props.history.push(`/detail/${houseCode}`)
+        }}
         style={style}
         src={src}
         title={title}

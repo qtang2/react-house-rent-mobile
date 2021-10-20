@@ -9,3 +9,6 @@
   position: fixed;
   bottom: 0;  
 }
+.home .am-tab-bar {
+  height: 50px
+}

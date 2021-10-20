@@ -1,4 +1,5 @@
 import axios from 'axios'
+
 export const getCurrentCity = () => {
   const localCity = JSON.parse(localStorage.getItem('houserent_city'))
   // no current city
@@ -31,3 +32,8 @@ export const getCurrentCity = () => {
   // has current city, return a successful promise
   return Promise.resolve(localCity)
 }
+
+export { API } from './api'
+export { BASE_URL } from './url'
+
+export * from './auth'
