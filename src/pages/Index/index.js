@@ -41,7 +41,7 @@ const navs = [
     id: 3,
     img: nav4,
     title: '去出租',
-    path: '/home/list',
+    path: '/rent/add',
   },
 ]
 
@@ -144,7 +144,7 @@ export default class Index extends React.Component {
           <p className='title'>{item.title}</p>
           <span className='info'>{item.desc}</span>
         </div>
-        <img src={`http://localhost:8080${item.imgSrc}`} alt='' />
+        <img src={`${BASE_URL}${item.imgSrc}`} alt='' />
       </Flex>
     )
   }

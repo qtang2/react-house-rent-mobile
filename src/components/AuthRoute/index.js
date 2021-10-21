@@ -11,7 +11,7 @@ const AuthRoute = ({ component: Component, ...rest }) => {
         const isLogin = isAuth()
 
         if (isLogin) {
-          return <Component />
+          return <Component {...props} />
         } else {
           return (
             <Redirect

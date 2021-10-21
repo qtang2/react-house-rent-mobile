@@ -7,53 +7,53 @@ const HOUSE_PACKAGE = [
   {
     id: 1,
     name: '衣柜',
-    icon: 'icon-wardrobe'
+    icon: 'icon-wardrobe',
   },
   {
     id: 2,
     name: '洗衣机',
-    icon: 'icon-wash'
+    icon: 'icon-wash',
   },
   {
     id: 3,
     name: '空调',
-    icon: 'icon-air'
+    icon: 'icon-air',
   },
   {
     id: 4,
     name: '天然气',
-    icon: 'icon-gas'
+    icon: 'icon-gas',
   },
   {
     id: 5,
     name: '冰箱',
-    icon: 'icon-ref'
+    icon: 'icon-ref',
   },
   {
     id: 6,
     name: '暖气',
-    icon: 'icon-Heat'
+    icon: 'icon-Heat',
   },
   {
     id: 7,
     name: '电视',
-    icon: 'icon-vid'
+    icon: 'icon-vid',
   },
   {
     id: 8,
     name: '热水器',
-    icon: 'icon-heater'
+    icon: 'icon-heater',
   },
   {
     id: 9,
     name: '宽带',
-    icon: 'icon-broadband'
+    icon: 'icon-broadband',
   },
   {
     id: 10,
     name: '沙发',
-    icon: 'icon-sofa'
-  }
+    icon: 'icon-sofa',
+  },
 ]
 
 /* 
@@ -66,18 +66,18 @@ const HOUSE_PACKAGE = [
 export default class HousePackage extends Component {
   state = {
     // 选中名称
-    selectedNames: []
+    selectedNames: [],
   }
 
   // 根据id切换选中状态
-  toggleSelect = name => {
+  toggleSelect = (name) => {
     const { selectedNames } = this.state
     let newSelectedNames
 
     // 判断该项是否选中
     if (selectedNames.indexOf(name) > -1) {
       // 选中：从数组中删除选中项，也就是保留未选中项
-      newSelectedNames = selectedNames.filter(item => item !== name)
+      newSelectedNames = selectedNames.filter((item) => item !== name)
     } else {
       // 未选中：添加到数组中
       newSelectedNames = [...selectedNames, name]
@@ -87,7 +87,7 @@ export default class HousePackage extends Component {
     this.props.onSelect(newSelectedNames)
 
     this.setState({
-      selectedNames: newSelectedNames
+      selectedNames: newSelectedNames,
     })
   }
 
@@ -106,10 +106,10 @@ export default class HousePackage extends Component {
     } else {
       // 展示房屋配置列表
       // 从所有的列表项中过滤出要展示的（list）列表项
-      data = HOUSE_PACKAGE.filter(v => list.includes(v.name))
+      data = HOUSE_PACKAGE.filter((v) => list.includes(v.name))
     }
 
-    return data.map(item => {
+    return data.map((item) => {
       // 判断该项是否选中
       const isSelected = selectedNames.indexOf(item.name) > -1
 
@@ -131,4 +131,8 @@ export default class HousePackage extends Component {
   render() {
     return <ul className={styles.root}>{this.renderItems()}</ul>
   }
+}
+
+HousePackage.defaultProps = {
+  onSelect: () => {},
 }

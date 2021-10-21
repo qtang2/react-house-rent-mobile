@@ -10,14 +10,14 @@ const NoHouse = ({ children }) => (
     <img
       className={styles.img}
       src={BASE_URL + '/img/not-found.png'}
-      alt="暂无数据"
+      alt='暂无数据'
     />
     <p className={styles.msg}>{children}</p>
   </div>
 )
 
 NoHouse.propTypes = {
-  children: PropTypes.string.isRequired
+  children: PropTypes.node.isRequired,
 }
 
 export default NoHouse
