@@ -105,6 +105,7 @@ export default class HouseDetail extends Component {
 
   async getHouseDetail() {
     const { id } = this.props.match.params
+    console.log('in house detial id', id)
 
     const res = await API.get(`/houses/${id}`)
 

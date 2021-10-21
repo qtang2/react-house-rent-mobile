@@ -209,6 +209,9 @@ export default class Map extends React.Component {
       const src = BASE_URL + houseImg
       return (
         <HouseItem
+          onClick={() => {
+            this.props.history.push(`/detail/${houseCode}`)
+          }}
           key={houseCode}
           src={src}
           title={title}
