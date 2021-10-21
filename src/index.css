@@ -34,3 +34,8 @@ body,
   overflow: hidden
 }
 
+.router-loading{
+  text-align: center;
+  padding: 100px;
+}
+

@@ -12,3 +12,8 @@
 .home .am-tab-bar {
   height: 50px
 }
+
+.home-loading {
+  text-align: center;
+  padding: 100px;
+}

@@ -1,13 +1,18 @@
-import React from 'react'
+import React, { lazy, Suspense } from 'react'
 import { Route } from 'react-router-dom'
 import { TabBar } from 'antd-mobile'
 
 import './index.css'
 
-import News from '../News'
 import Index from '../Index'
-import HouseList from '../HouseList'
-import Profile from '../Profile'
+// import News from '../News'
+// import HouseList from '../HouseList'
+// import Profile from '../Profile'
+
+// improve performance
+const News = lazy(() => import('../News'))
+const HouseList = lazy(() => import('../HouseList'))
+const Profile = lazy(() => import('../Profile'))
 
 const tabItems = [
   {
@@ -75,22 +80,24 @@ export default class Home extends React.Component {
 
   render() {
     return (
-      <div className='home'>
-        {/* 2.3 sub route */}
-        <Route exact path='/home' component={Index} />
-        <Route path='/home/news' component={News} />
-        <Route path='/home/list' component={HouseList} />
-        <Route path='/home/profile' component={Profile} />
+      <Suspense fallback={<div className='home-loading'>Loading...</div>}>
+        <div className='home'>
+          {/* 2.3 sub route */}
+          <Route exact path='/home' component={Index} />
+          <Route path='/home/news' component={News} />
+          <Route path='/home/list' component={HouseList} />
+          <Route path='/home/profile' component={Profile} />
 
-        {/* TabBar */}
-        <TabBar
-          unselectedTintColor='#949494'
-          tintColor='#21b97a'
-          noRenderContent={true}
-        >
-          {this.renderItems()}
-        </TabBar>
-      </div>
+          {/* TabBar */}
+          <TabBar
+            unselectedTintColor='#949494'
+            tintColor='#21b97a'
+            noRenderContent={true}
+          >
+            {this.renderItems()}
+          </TabBar>
+        </div>
+      </Suspense>
     )
   }
 }

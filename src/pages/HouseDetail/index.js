@@ -105,7 +105,6 @@ export default class HouseDetail extends Component {
 
   async getHouseDetail() {
     const { id } = this.props.match.params
-    console.log('in house detial id', id)
 
     const res = await API.get(`/houses/${id}`)
 
@@ -320,7 +319,7 @@ export default class HouseDetail extends Component {
             <Flex.Item>
               <div>
                 <span className={styles.title}>装修：</span>
-                精装111
+                精装
               </div>
               <div>
                 <span className={styles.title}>楼层：</span>
